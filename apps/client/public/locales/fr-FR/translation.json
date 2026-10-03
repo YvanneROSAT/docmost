@@ -1476,5 +1476,7 @@
   "Test event delivered to {{name}}": "Événement de test envoyé à {{name}}",
   "Updated SIEM destination": "Destination SIEM mise à jour",
   "Verify TLS certificate": "Vérifier le certificat TLS",
-  "e.g. Splunk prod": "p. ex. Splunk prod"
+  "e.g. Splunk prod": "p. ex. Splunk prod",
+  "Confetti": "Confettis",
+  "Confetti mode": "Mode confettis"
 }

@@ -33,6 +33,7 @@ import useAuth from "@/features/auth/hooks/use-auth.ts";
 import { CustomAvatar } from "@/components/ui/custom-avatar.tsx";
 import { useTranslation } from "react-i18next";
 import { AvatarIconType } from "@/features/attachments/types/attachment.types.ts";
+import { ConfettiMenuItem } from "@/features/confetti/components/confetti-menu-item.tsx";
 
 export default function TopMenu() {
   const { t } = useTranslation();
@@ -188,6 +189,8 @@ export default function TopMenu() {
             </Menu.Item>
           </Menu.Sub.Dropdown>
         </Menu.Sub>
+
+        <ConfettiMenuItem />
 
         <Menu.Divider />
 
