@@ -33,6 +33,9 @@ WORKDIR /app
 COPY --from=builder /app/apps/server/dist /app/apps/server/dist
 COPY --from=builder /app/apps/client/dist /app/apps/client/dist
 COPY --from=builder /app/apps/server/package.json /app/apps/server/package.json
+# pnpm 11 refuse un lockfile qui cite un projet absent : on garde le
+# package.json du client, sans ses dépendances (filtre server... plus bas).
+COPY --from=builder /app/apps/client/package.json /app/apps/client/package.json
 
 # Copy packages
 COPY --from=builder /app/packages/editor-ext/dist /app/packages/editor-ext/dist
@@ -51,7 +54,7 @@ RUN chown -R node:node /app
 
 USER node
 
-RUN pnpm install --frozen-lockfile --prod && rm -rf /home/node/.cache/pnpm
+RUN pnpm install --frozen-lockfile --prod --filter "server..." && rm -rf /home/node/.cache/pnpm
 
 RUN mkdir -p /app/data/storage
 
